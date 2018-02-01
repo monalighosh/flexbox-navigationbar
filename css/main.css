@@ -5,6 +5,9 @@
 ------------------------------------------------------------- */    
 body {
   font: normal 100% 'Roboto', sans-serif;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#fad0c4), to(#ffd1ff));
+  background-image: -webkit-linear-gradient(bottom, #fad0c4 0%, #ffd1ff 100%);
+  background-image: -o-linear-gradient(bottom, #fad0c4 0%, #ffd1ff 100%);
   background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
 }
 
@@ -24,6 +27,8 @@ a {
   padding: 1em;
   width: 100%;
   text-align: center;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
   transition: all .5s ease;
   display: inline-block;
 }
@@ -40,7 +45,9 @@ a:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   max-width: 1500px;
 }
 
@@ -55,12 +62,16 @@ a:hover {
 .flexNav__list {
   border: 2px solid rgba(0, 0, 0, 0.3);
   list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin:  3em 0;
 }
 
 .flexNav__item {
-  flex: 3;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
   border-right: 2px solid rgba(0, 0, 0, 0.3);
 }
 
@@ -69,6 +80,58 @@ a:hover {
 }
 
 .social {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
+/* ---------------------------------------------------------
+  Media Queries
+------------------------------------------------------------- */  
+
+@media screen and (max-width: 1310px) {
+  .flexNav {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .flexNav__list {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .flexNav__item {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    border-right: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .flexNav__item:not(.social):nth-child(odd) {
+    border-right: 2px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .social {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+     border-bottom: none;
+     border-right: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+ .flexNav__item {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+ }
+
+ .flexNav__item:not(.social):nth-child(odd) {
+    border-right: none;
+  }
+
+  .social {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%
+  }
+}
