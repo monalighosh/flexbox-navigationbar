@@ -1,3 +1,3 @@
 # Flexbox Navigationbar
 
- This is a simple responsive navigation design build using Flexbox and media queries.
+ This is a simple responsive navigation design build using flexbox and media queries.
